@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tvAvatarInitial" type="id" />
+    <item name="tvProfileName" type="id" />
+    <item name="tvUsername" type="id" />
+    <item name="btnLogout" type="id" />
+</resources>

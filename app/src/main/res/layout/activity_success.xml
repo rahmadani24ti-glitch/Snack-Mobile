@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nexora_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_available"
+        android:gravity="center"
+        android:text="✓"
+        android:textColor="@color/nexora_success"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Registrasi Berhasil"
+        android:textColor="@color/nexora_dark_text"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Data pendaftaran Anda telah berhasil diverifikasi. Silahkan login menggunakan akun Anda."
+        android:textColor="@color/nexora_secondary_text"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btnLoginSuccess"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/bg_primary_button"
+        app:backgroundTint="@null"
+        android:text="Ke Halaman Login"
+        android:textAllCaps="false"
+        android:textColor="@color/nexora_white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

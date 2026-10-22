@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/nexora_background"
@@ -358,6 +359,7 @@
             android:layout_height="55dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/bg_primary_button"
+            app:backgroundTint="@null"
             android:text="View Properties"
             android:textAllCaps="false"
             android:textColor="@color/nexora_white"
@@ -370,6 +372,7 @@
             android:layout_height="52dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_primary_button"
+            app:backgroundTint="@null"
             android:text="Open Web Information"
             android:textAllCaps="false"
             android:textColor="@color/nexora_white"

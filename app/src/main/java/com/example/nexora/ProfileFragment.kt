@@ -17,28 +17,78 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+    ): View {
+        return inflater.inflate(
+            R.layout.fragment_profile,
+            container,
+            false
+        )
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
-        val tvAvatarInitial = view.findViewById<TextView>(R.id.tvAvatarInitial)
-        val tvProfileName = view.findViewById<TextView>(R.id.tvProfileName)
-        val tvUsername = view.findViewById<TextView>(R.id.tvUsername)
-        val btnLogout = view.findViewById<Button>(R.id.btnLogout)
+        val tvAvatarInitial =
+            view.findViewById<TextView>(R.id.tvAvatarInitial)
+        val tvProfileName =
+            view.findViewById<TextView>(R.id.tvProfileName)
+        val tvUsername =
+            view.findViewById<TextView>(R.id.tvUsername)
 
-        val sharedPref = requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
-        val username = sharedPref.getString("username", "User") ?: "User"
+        val tvFullName =
+            view.findViewById<TextView>(R.id.tvProfileFullName)
+        val tvEmail =
+            view.findViewById<TextView>(R.id.tvProfileEmail)
+        val tvDob =
+            view.findViewById<TextView>(R.id.tvProfileDob)
+        val tvGender =
+            view.findViewById<TextView>(R.id.tvProfileGender)
+        val tvProfileUsername =
+            view.findViewById<TextView>(R.id.tvProfileUsername)
 
-        if (username.isNotEmpty()) {
-            val capitalized = username.replaceFirstChar { it.uppercase() }
-            tvProfileName.text = capitalized
-            tvUsername.text = "@$username"
-            tvAvatarInitial.text = capitalized.first().toString()
+        val btnLogout =
+            view.findViewById<Button>(R.id.btnLogout)
+
+        val sharedPref = requireActivity()
+            .getSharedPreferences(
+                "user_pref",
+                Context.MODE_PRIVATE
+            )
+
+        // Ambil semua data registrasi
+        val nama = sharedPref.getString("reg_nama", "") ?: ""
+        val email = sharedPref.getString("reg_email", "") ?: ""
+        val dob = sharedPref.getString("reg_dob", "") ?: ""
+        val gender = sharedPref.getString("reg_gender", "") ?: ""
+        val username =
+            sharedPref.getString("reg_username", "") ?: ""
+
+        // Tampilkan nama di kartu profil
+        tvProfileName.text = nama.ifBlank { "Nama belum tersedia" }
+
+        // Tampilkan username di kartu profil
+        tvUsername.text = if (username.isNotBlank()) {
+            "@$username"
+        } else {
+            "Username belum tersedia"
         }
 
+        // Tampilkan inisial avatar
+        tvAvatarInitial.text = nama.firstOrNull()
+            ?.uppercaseChar()
+            ?.toString() ?: "U"
+
+        // Tampilkan semua informasi akun
+        tvFullName.text = nama.ifBlank { "-" }
+        tvEmail.text = email.ifBlank { "-" }
+        tvDob.text = dob.ifBlank { "-" }
+        tvGender.text = gender.ifBlank { "-" }
+        tvProfileUsername.text = username.ifBlank { "-" }
+
+        // Logout
         btnLogout.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle("Logout")
@@ -47,14 +97,18 @@ class ProfileFragment : Fragment() {
                     dialog.dismiss()
                 }
                 .setPositiveButton("Ya") { dialog, _ ->
-                    val editor = sharedPref.edit()
-                    editor.clear()
-                    editor.apply()
-
+                    sharedPref.edit().clear().apply()
                     dialog.dismiss()
 
-                    val intent = Intent(requireContext(), AuthActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    val intent = Intent(
+                        requireContext(),
+                        AuthActivity::class.java
+                    ).apply {
+                        flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or
+                                    Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
+
                     startActivity(intent)
                     requireActivity().finish()
                 }
