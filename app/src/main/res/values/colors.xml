@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Nexora Brand -->
+    <color name="nexora_primary">#4F46E5</color>
+    <color name="nexora_secondary">#A78BFA</color>
+    <color name="nexora_tertiary">#E9E7FF</color>
+
+    <!-- Text -->
+    <color name="nexora_dark_text">#0F172A</color>
+    <color name="nexora_secondary_text">#64748B</color>
+
+    <!-- Status -->
+    <color name="nexora_success">#10B981</color>
+    <color name="nexora_warning">#FFBF24</color>
+    <color name="nexora_error">#EF4444</color>
+    <color name="nexora_info">#60A5FA</color>
+
+    <!-- Background -->
+    <color name="nexora_background">#F8FAFC</color>
+    <color name="nexora_white">#FFFFFF</color>
+
+    <!-- Compatibility dengan XML lama -->
+    <color name="primary">#4F46E5</color>
+    <color name="background">#F8FAFC</color>
+
+    <color name="card_dark">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="dark_text">#0F172A</color>
+    <color name="secondary_text">#64748B</color>
+    <color name="light_purple">#E9E7FF</color>
+    <color name="success">#10B981</color>
+    <color name="light_background">#F8FAFC</color>
+
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/nexora_primary"
+    android:padding="30dp">
+
+    <!-- LOGO NEXORA -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:contentDescription="Logo Nexora"
+        android:scaleType="fitCenter"
+        android:src="@drawable/nexora_logo_full" />
+
+    <!-- Loading -->
+    <ProgressBar
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="25dp"
+        android:indeterminateTint="@color/nexora_white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Property Management System"
+        android:textColor="@color/nexora_white"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Version 1.0"
+        android:textColor="@color/nexora_tertiary"
+        android:textSize="12sp" />
+
+</LinearLayout>
